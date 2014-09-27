@@ -30,13 +30,13 @@ using s4pi.Helpers;
 using s4pi.ImageResource;
 using s4pi.Interfaces;
 using System.IO;
-using s4pi.ImageResource;
 
 namespace DSTResourceHelper
 {
     public partial class MainForm : Form
     {
         private string[] args;
+        private string filePath;
         private FileStream fs;
         DSTResource dst;
         static bool channel1 = true, channel2 = true, channel3 = true, channel4 = true, invertch4 = false;
@@ -52,9 +52,9 @@ namespace DSTResourceHelper
         {
             if (this.args == null || this.args.Length < 2)
                 this.Close();
-            string path = this.args[1];
-            if (!File.Exists(path)) this.Close();
-            fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            this.filePath = this.args[1];
+            if (!File.Exists(filePath)) this.Close();
+            fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             dst = new s4pi.ImageResource.DSTResource(1, fs);
             ddsPanel = new DDSPanel()
             {
@@ -74,8 +74,6 @@ namespace DSTResourceHelper
             
             this.panel.Controls.Add(ddsPanel);
             ddsPanel.DSTLoad(dst.Stream, false);
-            ddsPanel.Width = dst.Width;
-            ddsPanel.Height = dst.Height;
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -110,11 +108,20 @@ namespace DSTResourceHelper
                     {
                         this.dst.ImportToDST(fs2);
                         ddsPanel.DSTLoad(dst.Stream, false);
-                        ddsPanel.Width = dst.Width;
-                        ddsPanel.Height = dst.Height;
                     }
                 }
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(filePath) && fs != null) { MessageBox.Show("File does not exit any more"); return; }
+            fs.SetLength(0); // clear old data
+            dst.Stream.CopyTo(fs);
+            fs.Flush();
+            fs.Close();
+            this.Close();
+            
         }
 
     }

@@ -33,7 +33,7 @@ namespace DSTResourceHelper
         [STAThread]
         static void Main(string[] args)
         {
-            args = new string[] { "", @"C:\Users\Keyi\Desktop\S4_00B2D882_00000000_000B925050CFD420%%+_IMG.dds" };
+            args = new string[] { "", @"C:\Users\Kuree\Desktop\S4_00B2D882_00000000_1F1B8EBBBA195BCB%%+_IMG.dds" };
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm(args));
