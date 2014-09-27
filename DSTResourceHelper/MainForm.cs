@@ -51,7 +51,10 @@ namespace DSTResourceHelper
         private void MainForm_Shown(object sender, EventArgs e)
         {
             if (this.args == null || this.args.Length < 2)
+            {
+                MessageBox.Show("Please use it via s4pe");
                 this.Close();
+            }
             this.filePath = this.args[1];
             if (!File.Exists(filePath)) this.Close();
             fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
