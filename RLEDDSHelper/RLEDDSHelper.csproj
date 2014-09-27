@@ -45,6 +45,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Lib\s4pi.Interfaces.dll</HintPath>
     </Reference>
+    <Reference Include="s4pi.Settings">
+      <HintPath>..\Lib\s4pi.Settings.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
