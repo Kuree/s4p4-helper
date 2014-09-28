@@ -9,7 +9,7 @@
  *  the Free Software Foundation, either version 3 of the License, or      *
  *  (at your option) any later version.                                    *
  *                                                                         *
- *  s3pi is distributed in the hope that it will be useful,                *
+ *  s4pi is distributed in the hope that it will be useful,                *
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of         *
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
  *  GNU General Public License for more details.                           *
@@ -50,12 +50,14 @@ namespace DSTResourceHelper
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            if (this.args == null || this.args.Length < 2)
+            if (this.args == null || this.args.Length != 1)
             {
                 MessageBox.Show("Please use it via s4pe");
                 this.Close();
+                this.Dispose();
+                return;
             }
-            this.filePath = this.args[1];
+            this.filePath = this.args[0];
             if (!File.Exists(filePath)) this.Close();
             fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             dst = new s4pi.ImageResource.DSTResource(1, fs);

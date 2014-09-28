@@ -2,5 +2,5 @@
 ResourceType: 0x00B2D882
 Label: Export/Import via Helper
 Command: DSTResourceHelper.exe
-Arguments: ""
+Arguments: "{}"
 Desc: Shuffle/Unshuffle standard DDS format

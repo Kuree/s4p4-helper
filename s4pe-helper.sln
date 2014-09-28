@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLEDDSHelper", "RLEDDSHelpe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSTResourceHelper", "DSTResourceHelper\DSTResourceHelper.csproj", "{9B369219-FCDC-439A-AC66-A1893DB41B33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThumbnailResourceHelper", "ThumbnailResourceHelper\ThumbnailResourceHelper.csproj", "{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9B369219-FCDC-439A-AC66-A1893DB41B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B369219-FCDC-439A-AC66-A1893DB41B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B369219-FCDC-439A-AC66-A1893DB41B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
