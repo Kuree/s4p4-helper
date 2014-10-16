@@ -50,6 +50,7 @@ namespace DSTResourceHelper
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
+            this.args = new string[] { @"C:\Users\Keyi\Desktop\test.dds" };
             if (this.args == null || this.args.Length != 1)
             {
                 MessageBox.Show("Please use it via s4pe");
@@ -77,8 +78,16 @@ namespace DSTResourceHelper
             ddsPanel.Channel4Changed += (sn, e2) => channel4 = ddsPanel.Channel4;
             ddsPanel.InvertCh4Changed += (sn, e2) => invertch4 = ddsPanel.InvertCh4;
             
-            this.panel.Controls.Add(ddsPanel);
+            this.tableLayoutPanel.Controls.Add(ddsPanel);
+            this.tableLayoutPanel.SetRow(ddsPanel, 1);
+            this.ckbDST.Checked = dst.IsShuffled;
+
             ddsPanel.DSTLoad(dst.Stream, false);
+            ddsPanel.Padding = new System.Windows.Forms.Padding(3);
+            ddsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            ddsPanel.Fit = true;
+            ddsPanel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+            
         }
 
         private void btnExport_Click(object sender, EventArgs e)
@@ -86,14 +95,24 @@ namespace DSTResourceHelper
             if (dst == null) return;
             using (SaveFileDialog save = new SaveFileDialog()
             {
-                Filter = "DXT Image|*.dds"
+                Filter = "DXT Image|*.dds|Portable Network Grapics files|*.png|Grapics Interchange Format files|*.gif|JPEG files|*.jpg|Bitmap files|*.bmp"
             })
             {
                 if(save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     using(FileStream fs2 = new FileStream(save.FileName, FileMode.Create, FileAccess.Write))
                     {
-                        dst.ToDDS().CopyTo(fs2);
+                        string extension = Path.GetExtension(save.FileName);
+                        if (extension.ToLower() == ".dds")
+                        {
+                            dst.ToDDS().CopyTo(fs2);
+                        }
+                        else
+                        {
+                            var ext = Array.IndexOf(new[] { ".png", ".gif", ".jpg", ".bmp", }, extension.ToLower());
+                            var fmt = ext >= 0 ? fmts[ext] : System.Drawing.Imaging.ImageFormat.Png;
+                            ddsPanel.Image.Save(fs2, fmt);
+                        }
                     }
                 }
             }
@@ -104,15 +123,29 @@ namespace DSTResourceHelper
             if (dst == null) return;
             using (OpenFileDialog open = new OpenFileDialog()
             {
-                Filter = "DXT Image|*.dds"
+                Filter = "DXT Image|*.dds|Image files|*.png;*.gif;*.jpg;*.bmp"
             })
             {
                 if (open.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     using (FileStream fs2 = new FileStream(open.FileName, FileMode.Open, FileAccess.Read))
                     {
-                        this.dst.ImportToDST(fs2);
-                        ddsPanel.DSTLoad(dst.Stream, false);
+                        string extension = Path.GetExtension(open.FileName);
+                        if (extension.ToLower() == ".dds")
+                        {
+                            this.dst.ImportToDST(fs2);
+                            ddsPanel.DSTLoad(dst.Stream, false);
+                        }
+                        else
+                        {
+                            ddsPanel.Import(fs2);
+                            using(MemoryStream ms = new MemoryStream())
+                            {
+                                ddsPanel.DDSSave(ms);
+                                this.dst.ImportToDST(ms);
+                            }
+                        }
+                        this.ckbDST.Checked = this.dst.IsShuffled;
                     }
                 }
             }
@@ -122,12 +155,38 @@ namespace DSTResourceHelper
         {
             if (!File.Exists(filePath) && fs != null) { MessageBox.Show("File does not exit any more"); return; }
             fs.SetLength(0); // clear old data
-            dst.Stream.CopyTo(fs);
+            if (this.dst.IsShuffled == ckbDST.Checked)
+            {
+                dst.Stream.CopyTo(fs);
+            }
+            else
+            {
+                if(ckbDST.Checked && (!dst.IsShuffled))
+                {
+                    using(MemoryStream ms = dst.ToDDS() as MemoryStream)
+                    {
+                        dst.ImportToDST(ms);
+                        dst.Stream.CopyTo(fs);
+                    }
+                }
+                else
+                {
+                    dst.ToDDS().CopyTo(fs);
+                }
+            }
             fs.Flush();
             fs.Close();
             this.Close();
             
         }
 
+        static System.Drawing.Imaging.ImageFormat[] fmts = new[] {
+                System.Drawing.Imaging.ImageFormat.Png,
+                System.Drawing.Imaging.ImageFormat.Gif,
+                System.Drawing.Imaging.ImageFormat.Jpeg,
+                System.Drawing.Imaging.ImageFormat.Bmp,
+            };
+
+       
     }
 }

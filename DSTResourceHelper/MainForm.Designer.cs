@@ -47,26 +47,23 @@ namespace DSTResourceHelper
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
+            this.ckbDST = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel
-            // 
-            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel.Location = new System.Drawing.Point(13, 13);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(680, 512);
-            this.panel.TabIndex = 0;
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(588, 552);
+            this.btnSave.Location = new System.Drawing.Point(338, 187);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(105, 23);
             this.btnSave.TabIndex = 3;
@@ -77,7 +74,7 @@ namespace DSTResourceHelper
             // btnImport
             // 
             this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnImport.Location = new System.Drawing.Point(507, 552);
+            this.btnImport.Location = new System.Drawing.Point(257, 187);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(75, 23);
             this.btnImport.TabIndex = 2;
@@ -88,7 +85,7 @@ namespace DSTResourceHelper
             // btnExport
             // 
             this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExport.Location = new System.Drawing.Point(427, 552);
+            this.btnExport.Location = new System.Drawing.Point(177, 187);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 1;
@@ -96,28 +93,79 @@ namespace DSTResourceHelper
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
+            // ckbDST
+            // 
+            this.ckbDST.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ckbDST.AutoSize = true;
+            this.ckbDST.Location = new System.Drawing.Point(3, 193);
+            this.ckbDST.Name = "ckbDST";
+            this.ckbDST.Size = new System.Drawing.Size(104, 17);
+            this.ckbDST.TabIndex = 4;
+            this.ckbDST.Text = "Texture Shuffled";
+            this.ckbDST.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel
+            // 
+            this.tableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel.ColumnCount = 1;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Controls.Add(this.splitContainer1, 0, 1);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(13, 12);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 2;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(680, 437);
+            this.tableLayoutPanel.TabIndex = 5;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 221);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.ckbDST);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.btnExport);
+            this.splitContainer1.Panel2.Controls.Add(this.btnImport);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSave);
+            this.splitContainer1.Size = new System.Drawing.Size(674, 213);
+            this.splitContainer1.SplitterDistance = 224;
+            this.splitContainer1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 587);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnImport);
-            this.Controls.Add(this.btnExport);
-            this.Controls.Add(this.panel);
+            this.ClientSize = new System.Drawing.Size(705, 461);
+            this.Controls.Add(this.tableLayoutPanel);
             this.Name = "MainForm";
-            this.Text = "DST Resource Helper";
+            this.Text = "DDS Resource Helper";
             this.Shown += new System.EventHandler(this.MainForm_Shown);
+            this.tableLayoutPanel.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.CheckBox ckbDST;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 

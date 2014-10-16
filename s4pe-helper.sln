@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSTResourceHelper", "DSTRes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThumbnailResourceHelper", "ThumbnailResourceHelper\ThumbnailResourceHelper.csproj", "{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STBL Resource Editor", "STBL Resource Editor\STBL Resource Editor.csproj", "{834A2E36-F508-4868-AD68-1D216B609046}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{834A2E36-F508-4868-AD68-1D216B609046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834A2E36-F508-4868-AD68-1D216B609046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834A2E36-F508-4868-AD68-1D216B609046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834A2E36-F508-4868-AD68-1D216B609046}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
