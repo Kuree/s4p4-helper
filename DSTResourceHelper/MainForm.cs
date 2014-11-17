@@ -50,7 +50,7 @@ namespace DSTResourceHelper
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            this.args = new string[] { @"C:\Users\Keyi\Desktop\test.dds" };
+            //this.args = new string[] { @"C:\Users\Keyi\Desktop\test.dds" };
             if (this.args == null || this.args.Length != 1)
             {
                 MessageBox.Show("Please use it via s4pe");
