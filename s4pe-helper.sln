@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLEDDSHelper", "RLEDDSHelper\RLEDDSHelper.csproj", "{E86710E3-89DD-48E5-9BE2-349FDFDD2D26}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThumbnailResourceHelper", "ThumbnailResourceHelper\ThumbnailResourceHelper.csproj", "{7B2EBED1-D7DC-4DA3-AE4F-90ED6AD5324C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STBL Resource Editor", "STBL Resource Editor\STBL Resource Editor.csproj", "{834A2E36-F508-4868-AD68-1D216B609046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JFIFImportHelper", "ThumbnailImport\JFIFImportHelper.csproj", "{C33E3A6C-7A49-43A1-B4BB-B6B5FF286443}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{834A2E36-F508-4868-AD68-1D216B609046}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{834A2E36-F508-4868-AD68-1D216B609046}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{834A2E36-F508-4868-AD68-1D216B609046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C33E3A6C-7A49-43A1-B4BB-B6B5FF286443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33E3A6C-7A49-43A1-B4BB-B6B5FF286443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33E3A6C-7A49-43A1-B4BB-B6B5FF286443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C33E3A6C-7A49-43A1-B4BB-B6B5FF286443}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
